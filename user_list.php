@@ -6,11 +6,12 @@
     <?php include './common/style.html'; ?>
 </head>
 <body>
-    <?php include './common/aside.html'; ?>
+    
+<?php include './common/aside.html'; ?>
     <!-- 主体 -->
     <div class="main">
         <div class="container-fluid">
-            <?php include './common/header.html'; ?>
+        <?php include './common/header.html'; ?>
             <!-- 讲师列表 -->
             <div class="body user-list">
                 <!-- 面包屑 -->
@@ -43,33 +44,39 @@
                             </tr>
                         </thead>
                         <tbody>
+                           
+
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
+    
     <script type="text/template" id="list">
-        {{each rows}}
+    {{each rows}}
         <tr>
-            <td>{{$index+1}}</td>
+            <td>{{$inde+1}}</td>
             <td>{{$value.username}}</td>
-            <td>{{$value.mobile}}</td>
+            <td>{{$value.isDelete}}</td>
             {{if($value.isDelete == 1)}}
             <td>是</td>
-            {{else}}
+            {{ else }}
             <td>否</td>
             {{/if}}
             <td data-id="{{$value.id}}" data-status="{{$value.isDelete}}">
                 {{if($value.isDelete == 1)}}
-                <a href="javascript:;" class="btn btn-info btn-xs">启 用</a>
-                {{else}}
+                <a href="javascript:;" class="btn btn-warning btn-xs">启 用</a>
+                {{ else }}
                 <a href="javascript:;" class="btn btn-warning btn-xs">禁 用</a>
                 {{/if}}
             </td>
         </tr>
         {{/each}}
+    
     </script>
+
+   
     <?php include './common/script.html'; ?>
     <script>
         require(['src/userlist']);
